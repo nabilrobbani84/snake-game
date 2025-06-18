@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx5ks2ymo1m04"]
+
+[ext_resource type="Script" uid="uid://k3cjn0twc2m5" path="res://scenes/nextlevel.gd" id="1_2cglo"]
+
+[node name="nextlevel" type="CanvasLayer"]
+script = ExtResource("1_2cglo")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_2cglo")
