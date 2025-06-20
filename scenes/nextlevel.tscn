@@ -5,9 +5,21 @@
 [node name="nextlevel" type="CanvasLayer"]
 script = ExtResource("1_2cglo")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
+[node name="Panel" type="Panel" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_2cglo")
+
+[node name="TitleLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "\"Level Selesai!\""
+
+[node name="NextLevelButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "\"Lanjutkan\"
+"
+
+[connection signal="pressed" from="Panel/NextLevelButton" to="." method="_on_next_level_button_pressed"]

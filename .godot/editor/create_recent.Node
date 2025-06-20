@@ -1,8 +1,8 @@
-Control
-CanvasLayer
 Button
 Label
 Panel
+Control
+CanvasLayer
 ColorRect
 CollisionShape2D
 Sprite2D
