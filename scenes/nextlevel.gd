@@ -1,38 +1,29 @@
+# File: nextlevel.gd
 extends CanvasLayer
 
-# Definisikan sebuah sinyal baru yang akan dikirim ke main.gd
+# Sinyal ini akan memberitahu main.gd untuk melanjutkan ke level berikutnya
 signal proceed_to_next_level
 
-# PASTIKAN PATH INI BENAR SESUAI DENGAN SCENE TREE ANDA
-# Cara termudah: Seret node dari panel Scene ke sini.
-@onready var title_label: Label = $Panel/TitleLabel
-@onready var next_level_button: Button = $Panel/NextLevelButton
-
-# Jika struktur Anda adalah CanvasLayer -> ColorRect -> Panel, gunakan path ini:
-# @onready var title_label: Label = $ColorRect/Panel/TitleLabel
-# @onready var next_level_button: Button = $ColorRect/Panel/NextLevelButton
-
+# Gunakan path yang unik untuk memastikan tidak salah node
+@onready var title_label: Label = $TitleLabel
+@onready var next_level_button: Button = $NextLevelButton
 
 func _ready():
-	# Pemeriksaan untuk menghindari crash jika path salah
-	if next_level_button:
-		next_level_button.pressed.connect(_on_next_level_button_pressed)
-	else:
-		push_error("Node 'NextLevelButton' tidak ditemukan. Periksa path di nextlevel.gd!")
-		
-	if not title_label:
-		push_error("Node 'TitleLabel' tidak ditemukan. Periksa path di nextlevel.gd!")
+	# Koneksi sinyal dibuat di sini. 
+	# PASTIKAN TIDAK ADA KONEKSI LAIN DARI EDITOR untuk menghindari error "already connected".
+	hide() # Sembunyikan layar ini saat game dimulai
 
-	hide() # Sembunyikan secara default
-
-# Fungsi ini akan dipanggil dari main.gd
+# Fungsi ini dipanggil oleh main.gd untuk menampilkan layar ini
 func show_screen(level_number: int):
-	if title_label:
-		title_label.text = "Level " + str(level_number) + " Selesai!"
+	title_label.text = "Level " + str(level_number) + " Selesai!"
 	show()
+	# Saat layar ini muncul, tombol harus bisa diklik
+	next_level_button.disabled = false
 
-# Saat tombol di dalam scene ini ditekan
+
+# Saat tombol di scene ini ditekan
 func _on_next_level_button_pressed():
-	hide() # Sembunyikan lagi layar ini
-	# Kirim sinyal keluar untuk memberitahu main.gd agar melanjutkan game
+	hide() # Sembunyikan layar ini lagi
+	next_level_button.disabled = true # Matikan tombol untuk mencegah klik ganda
+	# Kirim sinyal ke main.gd
 	proceed_to_next_level.emit()

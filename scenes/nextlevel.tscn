@@ -3,23 +3,32 @@
 [ext_resource type="Script" uid="uid://k3cjn0twc2m5" path="res://scenes/nextlevel.gd" id="1_2cglo"]
 
 [node name="nextlevel" type="CanvasLayer"]
+process_mode = 2
 script = ExtResource("1_2cglo")
 
-[node name="Panel" type="Panel" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Panel2" type="Panel" parent="."]
+layout_direction = 2
+offset_left = 446.0
+offset_top = 498.0
+offset_right = 623.0
+offset_bottom = 602.0
 
-[node name="TitleLabel" type="Label" parent="Panel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="TitleLabel" type="Label" parent="."]
+layout_direction = 2
+offset_left = 474.0
+offset_top = 511.0
+offset_right = 590.0
+offset_bottom = 534.0
 text = "\"Level Selesai!\""
+horizontal_alignment = 3
 
-[node name="NextLevelButton" type="Button" parent="Panel"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="NextLevelButton" type="Button" parent="."]
+layout_direction = 2
+offset_left = 468.0
+offset_top = 544.0
+offset_right = 600.0
+offset_bottom = 582.0
 text = "\"Lanjutkan\"
 "
 
-[connection signal="pressed" from="Panel/NextLevelButton" to="." method="_on_next_level_button_pressed"]
+[connection signal="pressed" from="NextLevelButton" to="." method="_on_next_level_button_pressed"]

@@ -21,4 +21,3 @@ wait_time = 0.1
 process_mode = 2
 
 [connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]
-[connection signal="restart" from="GameOverMenu" to="." method="_on_game_over_menu_restart"]

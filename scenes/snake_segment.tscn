@@ -1,18 +1,5 @@
-[gd_scene load_steps=2 format=3 uid="uid://beaa828xfn3nx"]
+[gd_scene format=3 uid="uid://beaa828xfn3nx"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mb3th"]
-bg_color = Color(0.192157, 0.654902, 0, 0.784314)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.270588, 0.580392, 0, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[node name="SnakeSegment" type="Panel" groups=["segments"]]
-offset_right = 50.0
-offset_bottom = 50.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_mb3th")
+[node name="SnakeSegment" type="Polygon2D" groups=["segments"]]
+polygon = PackedVector2Array(48, 0, -4.19617e-05, -1.90735e-06, -1.71661e-05, 48, 48, 48)
+uv = PackedVector2Array(96, 8, 16, 8, 16, 72, 96, 72)

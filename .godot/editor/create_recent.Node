@@ -1,6 +1,10 @@
-Button
-Label
+AudioStreamPlayer
+Node
 Panel
+AudioStreamPlayer2D
+Polygon2D
+Label
+Button
 Control
 CanvasLayer
 ColorRect
