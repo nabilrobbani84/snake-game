@@ -1,2 +1,3 @@
-# snake_tutorial
+slicky - games
+
  Snake game made in Godot
